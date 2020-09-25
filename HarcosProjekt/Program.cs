@@ -15,12 +15,22 @@ namespace HarcosProjekt
         private int    basHP;
         private int basDMG;
 
+        public string Nev { get => nev; set => nev = value; }
+
+        public int LVL { get => lvl; set => lvl = 1; }
+        public int HP { get => hp; set => hp = 1; }
+        public int XP { get => xp; set => xp = 0; }
+        public int szintlepeshez { get => this.lvl * 5 + 10; }
+        public int MAXHP { get => this.lvl * 3 + this.basHP; }
+        public int DMG { get => this.lvl + this.basDMG; }
+
+
+
         public Harcos(string nev, int statuszSablon)
         {
-            this.nev = nev;
 
-            this.lvl = 1;
-            this.xp = 0;
+            //this.lvl = 1;
+          //  this.xp = 0;
             //this.hp = hp;
 
             if (statuszSablon == 1)
@@ -45,10 +55,19 @@ namespace HarcosProjekt
             //this.hp = this.basHP + this.lvl * 3;
         }
 
-            public int MAXhp { get => this.basHP + this.lvl * 3; }
-        
-    
-    
+        public int BasDmg { get => basDMG; }
+        public int BasHP { get => basHP; }
+
+          //  public int MAXhp { get => this.basHP + this.lvl * 3; } idk miért hoztam ezt kétszer létre.
+
+
+        public override string ToString()
+        {
+            return Console.WriteLine($"{nev} – LVL:{szint} – EXP: {tapasztalat}/{SzintLepeshez} " +
+                $"– HP: {eletero}/{MaxEletero} – DMG: {sebzes}",nev,lvl,xp,szintlepeshez,hp,maxhp);
+        }
+
+
     }
 
 
