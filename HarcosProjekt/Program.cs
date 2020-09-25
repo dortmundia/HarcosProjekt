@@ -68,6 +68,56 @@ namespace HarcosProjekt
           
         }
 
+        public void Megkuzd(Harcos masikHarcos)
+        {
+            if (this == masikHarcos)
+            {
+                Console.WriteLine("hiba, harcos nem tud saját magával meg küzdeni");
+            }
+            else if (this.HP ==0 || masikHarcos.HP == 0)
+            {
+                Console.WriteLine("hiba, halott harcos nem tud küzdeni");
+            }
+            else
+            {
+                masikHarcos.HP -= this.DMG;
+                if (masikHarcos.hp>0)
+                {
+                    this.HP -= masikHarcos.DMG;
+                }
+                else
+                {
+                    this.XP += 10;
+                }
+                this.XP += 5;
+                masikHarcos.XP += 5;
+
+                if (this.hp<1)
+                {
+                    masikHarcos.XP += 10;
+                }
+            }
+            
+            
+        } 
+
+
+        public void gyogyul()
+        {
+            if (this.HP==0)
+            {
+                this.HP = this.MAXHP;
+            }
+            else
+            {
+                this.HP = 3 + this.LVL;
+                if (this.HP>this.MAXHP)
+                {
+
+                    this.HP = this.MAXHP;
+                }
+            }
+        } 
 
     }
 
