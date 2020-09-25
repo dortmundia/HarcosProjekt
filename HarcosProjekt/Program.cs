@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace HarcosProjekt
@@ -63,8 +64,8 @@ namespace HarcosProjekt
 
         public override string ToString()
         {
-            return Console.WriteLine($"{nev} – LVL:{szint} – EXP: {tapasztalat}/{SzintLepeshez} " +
-                $"– HP: {eletero}/{MaxEletero} – DMG: {sebzes}",nev,lvl,xp,szintlepeshez,hp,maxhp);
+            return String.Format($"{0} – LVL:{1} – EXP: {2}/{3} – HP: {4}/{5} – DMG: {6}",Nev,LVL,XP,szintlepeshez,HP,MAXHP,DMG);
+          
         }
 
 
