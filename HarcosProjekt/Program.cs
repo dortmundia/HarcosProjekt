@@ -64,8 +64,8 @@ namespace HarcosProjekt
 
         public override string ToString()
         {
-            return String.Format($"{0} – LVL:{1} – EXP: {2}/{3} – HP: {4}/{5} – DMG: {6}",Nev,LVL,XP,szintlepeshez,HP,MAXHP,DMG);
-          
+            return String.Format("{0} – LVL:{1} – EXP: {2}/{3} – HP: {4}/{5} – DMG:{6} ",Nev,LVL,XP,szintlepeshez,HP,MAXHP,DMG);
+            
         }
 
         public void Megkuzd(Harcos masikHarcos)
@@ -87,6 +87,7 @@ namespace HarcosProjekt
                 }
                 else
                 {
+                    masikHarcos.XP = 0;
                     this.XP += 10;
                 }
                 this.XP += 5;
@@ -95,6 +96,7 @@ namespace HarcosProjekt
                 if (this.hp<1)
                 {
                     masikHarcos.XP += 10;
+                    this.XP = 0;
                 }
             }
             
@@ -127,11 +129,31 @@ namespace HarcosProjekt
     {
         static void Main(string[] args)
         {
-
-
-
-
-
+            StreamReader sr = new StreamReader("harcosok.csv");
+            List<Harcos> harcosok = new List<Harcos>();
+            int i = 0;
+            string[] harcosokseged1 = new string[3];
+            string[] harcosokseged2 = new string[3];
+            while (!sr.EndOfStream)
+            {
+                string[] seged = new string[2];
+                   seged = sr.ReadLine().Split(';') ;
+                harcosokseged1[i] = seged[0];
+                harcosokseged2[i] = seged[1];
+                
+                
+                
+                i++;
+            }
+            for (i  = 0; i < 3; i++)
+            {
+                Harcos nev = new Harcos(harcosokseged1[i],Convert.ToInt32(harcosokseged2[i]));
+                harcosok.Add(nev);
+            }
+            for (i = 0; i <harcosok.Count; i++)
+            {
+                Console.WriteLine(harcosok[i]);
+            }
 
         Console.ReadKey();
         }
