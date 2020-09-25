@@ -8,9 +8,11 @@ namespace HarcosProjekt
 {
     class Harcos
     {
-
-
-
+        private string nev;
+        private int lvl;
+        private int hp;
+        private int    basHP;
+        private int basDMG;
 
 
 
