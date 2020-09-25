@@ -6,6 +6,17 @@ using System.Threading.Tasks;
 
 namespace HarcosProjekt
 {
+    class Harcos
+    {
+
+
+
+
+
+
+    }
+
+
     class Program
     {
         static void Main(string[] args)
